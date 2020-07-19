@@ -1,0 +1,38 @@
+.navbar {
+    height: 104px !important;
+}
+
+.box-blue {
+    background-color: #3c8dbc;
+    color: #fff;
+}
+
+.widget-user-2 .widget-user-image>img {
+    width: 80px !important;
+    height: auto;
+}
+
+.box {
+    box-shadow: none;
+}
+
+.widget-user-2 .widget-user-username,
+.widget-user-desc {
+    margin-left: 90px !important;
+}
+
+.widget-user-2 .widget-user-username {
+    margin-top: 11px;
+}
+
+.widget-user-2 .widget-user-header {
+    padding: 12px 30px;
+}
+
+.navbar-custom-menu .btn {
+    margin-top: 22%;
+}
+
+.user-block .username {
+    text-transform: uppercase;
+}

@@ -1,0 +1,50 @@
+.dl-horizontal dt {
+    text-align: left;
+    margin-left: 3%;
+    width: 5%;
+}
+
+dd {
+    margin-left: 0 !important;
+    padding-top: 0.25%;
+}
+
+.text-red {
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.direct-chat-messages {
+    height: auto;
+}
+
+.notification,
+.hidden {
+    visibility: hidden;
+}
+
+.notification {
+    z-index: 2;
+    margin-top: -120px;
+    margin-left: -70px;
+    margin-right: -70px;
+}
+
+.active_page {
+    background: #3c8dbc !important;
+    color: white !important;
+}
+
+.actived_page {
+    background: #eee!important;
+    color: #3c8dbc !important;
+}
+
+.disabled {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #777;
+    border-color: #ddd;
+}
