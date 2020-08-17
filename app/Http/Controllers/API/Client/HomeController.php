@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Services\HomeService;
 use App\Services\StudentService;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -19,7 +20,7 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $id = \Session::get('id');
+        $id = Session::get('id');
         //lay mon thi
         $id_subject=$this->homeService->getIdSubject();
         //dd( $id_subject);

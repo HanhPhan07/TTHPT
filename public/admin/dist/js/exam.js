@@ -72,7 +72,7 @@ $(document).ready(function(){
         });
     })
 
-    $('#btnPlayExam').on('click', function(){
+    $('#btnPlayExam').on('click', function(e){
         e.preventDefault();
         $('#error_message_exam').empty();
         var id_subject = $('#subject').val();
@@ -91,14 +91,23 @@ $(document).ready(function(){
                 data: {
                     id_subject: id_subject
                 },
-                success:function(data){
-                    $('#PlayExam').modal('hide');
-                    alert('Exam is Played!!');
-                    location.reload();
+                success:function(result){
+                    var json_data = $.parseJSON(result);
+                    if(json_data.status==1){
+                        $('#PlayExam').modal('hide');
+                        alert('Phát đề thành công');
+                        location.reload();
+                    }
+                    else{
+                        alert('Đề đã được phát cho môn học này');
+                        $('#PlayExam').modal('hide');
+                    }
+
                 },
-                error: function(){
-                    alert('Error! try it again');
-                }
+                // error: function(){
+                //     alert('Đề đã được phát cho môn học này');
+                //     $('#PlayExam').modal('hide');
+                // }
             });
         }
     })

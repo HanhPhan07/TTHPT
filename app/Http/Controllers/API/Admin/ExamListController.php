@@ -51,7 +51,11 @@ class ExamListController extends Controller
     public function store(Request $request)
     {
         $id_subject = $request->input('id_subject');
-        $this->examlistService->playexam(6);
+        if($this->examlistService->playexam($id_subject)){
+            $result['status']=1;
+        }
+        else $result['status']=0;
+        return json_encode($result);
     }
 
     /**

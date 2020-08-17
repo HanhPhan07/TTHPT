@@ -37,4 +37,17 @@ class ExamListRepository  extends EloquentRepository
     {
         return ExamList::with('student')->get();
     }
+
+    public function getListIdExam($id_student){
+        return ExamList::whereId_student($id_student)
+                        ->get()->pluck('id_exam')
+                        ->toArray();
+    }
+
+    public function createExamList($id_exam, $id_student){
+        $examList = new ExamList();
+        $examList->id_exam=$id_exam;
+        $examList->id_student=$id_student;
+        $examList->save();
+    }
 }

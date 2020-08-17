@@ -17,7 +17,7 @@ class Question extends Model
         'question_content',
     ];
 
-    //protected $hidden = ['ans_correct'];
+    protected $hidden = ['ans_correct'];
 
     public function questionList() {
         return $this->hasMany('App\Models\QuestionList','id_question','id');

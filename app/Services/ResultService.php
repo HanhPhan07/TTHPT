@@ -24,4 +24,8 @@ class ResultService
     public function resultExam(){
         $this->resultRepository->resultExam();
     }
+
+    public function resultCalculate(){
+        $this->resultRepository->resultCalculate();
+    }
 }

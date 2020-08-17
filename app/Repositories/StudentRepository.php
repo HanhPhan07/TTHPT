@@ -80,10 +80,4 @@ class StudentRepository  extends EloquentRepository
         return $id_stu_subject ;
     }
 
-    public function getListIDByIDSubject($id_subject)
-    {
-        // return Student::where
-    }
-
-
 }

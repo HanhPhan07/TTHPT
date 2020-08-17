@@ -31,8 +31,6 @@ class ResultController extends Controller
     public function index()
     {
         $data['result'] = $this->taskService->doneExam();
-        //echo $test;
-        //$data['result']= Task::all();
         return view('admin.result.result',$data);
     }
 

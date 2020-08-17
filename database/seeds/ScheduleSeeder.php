@@ -11,7 +11,7 @@ class ScheduleSeeder extends Seeder
      */
     public function run()
     {
-        $so_row = 10;
+        $so_row = 8;
 
         $mon_hoc = ['Toán', 'Ngữ Văn', 'Anh Văn', 'Lý', 'Hóa', 'Sinh', 'Sử', 'Địa'];
 

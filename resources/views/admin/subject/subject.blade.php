@@ -55,7 +55,8 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên</th>
+                                    <th>Tên môn học</th>
+                                    <th>Thời gian thi</th>
                                     <th>Ngày tạo</th>
                                     <th>Ngày cập nhật</th>
                                     <th>Công cụ</th>

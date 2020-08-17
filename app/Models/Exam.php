@@ -8,7 +8,7 @@ use App\Models\Subject;
 class Exam extends Model
 {
     protected $fillable = [
-        'id', 'id_subject', 'number', 'time', 'created_at', 'updated_at',
+        'id', 'id_subject', 'number', 'created_at', 'updated_at',
     ];
 
     public function examlist() {

@@ -5,7 +5,7 @@ $(function() {
         if (confirm("Bạn có chắc chắn muốn nộp bài")) {
             var arr_selected = JSON.parse(localStorage.getItem("allselected"));
 
-            
+
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -18,6 +18,9 @@ $(function() {
                     localStorage.removeItem('num_selected');
                     console.log(data);
                     window.location.href= "../result"
+                },
+                error:function(){
+                    alert('Bạn đã nộp bài và chỉ được xem lại bài thôi.');
                 }
             });
         }
@@ -246,7 +249,7 @@ function show_lists_questions(data) {
         //hiển thị các phần tử từ 0 đến show_item_page không bao gồm show_item_page (slice)
         $('#list_question').children().slice(0, show_item_page).css('display', 'block');
         //go_to_page(parseInt(localStorage.getItem('current_page')));
-        
+
     }
 }
 //Pagination JS

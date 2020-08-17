@@ -11,6 +11,8 @@ use App\Imports\StudentsImport;
 use App\Exports\StudentsExport;
 use Carbon\Carbon;
 use DateTime;
+use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class StudentController extends Controller
 {
@@ -49,7 +51,7 @@ class StudentController extends Controller
                 //return $result['status_value']=$exception->getStatusCode();
                 //$result['status']=0;
                 //return back()->with('error', 'Contacts imported successfully.');
-            }   
+            }
         } else{
             $result['status_value']=" Lỗi nhập File";
             $result['status']=0;
@@ -89,7 +91,7 @@ class StudentController extends Controller
         $data['school']=$this->studentService->getAllSchool();
         $data['id_subject']=$this->studentService->findStudentSubject($id);
         $data['subject']=$this->studentService->getAllSubject();
-        $data['resultSubject']=$this->studentService->fStuResultSubject($id);
+        $data['result']=$this->studentService->fStuResultSubject($id);
         //dd($data);
         return view('admin.student.student-detail',$data);
     }

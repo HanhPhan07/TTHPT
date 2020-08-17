@@ -20,7 +20,6 @@ class ExamSeeder extends Seeder
             $exam = Exam::create([
                 'id_subject' => rand(1,8),
                 'number' => '30',
-                'time' => '120',
                 'created_at' => now(),
                 'updated_at' => now()
             ]);

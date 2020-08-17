@@ -18,7 +18,7 @@ class Question_listSeeder extends Seeder
 
         for ($stu = 0; $stu < $so_quest; $stu++) {
             for ($so_que=0; $so_que<30; $so_que++){
-            $student = Question_list::create([
+            $student = QuestionList::create([
                 'id_exam' => $stu+1,
                 'id_question' => rand(1,100),
                 'created_at' => now(),

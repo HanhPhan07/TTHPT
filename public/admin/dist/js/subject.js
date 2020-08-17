@@ -15,6 +15,10 @@ $(document).ready(function(){
       name: 'name'
       },
       {
+      data: 'time',
+      name: 'time'
+      },
+      {
       data: 'created_at',
       name: 'created_at'
       },
@@ -36,10 +40,11 @@ $(document).ready(function(){
 
       if (addElement == null){
         var html='<tr>';
-        html+= '<td contenteditable id="data1"></td>';
+        html+= '<td  id="data1"></td>';
         html+= '<td contenteditable id="data2"></td>';
         html+= '<td contenteditable id="data3"></td>';
-        html+= '<td contenteditable id="data4"></td>';
+        html+= '<td  id="data4"></td>';
+        html+= '<td  id="data5"></td>';
         html+= '<td><button name="insert" id="insert" class="btn btn-success btn-xs">Insert</button></td>'; 
         html+= '</tr>';
         $('#subject_table tbody').prepend(html);
@@ -49,22 +54,27 @@ $(document).ready(function(){
 
     $(document).on('click', '#insert', function(){
       var name = $('#data2').text();
-      var created_at = $('#data3').text();
-      var updated_at = $('#data4').text();
-      if (name!=''&&created_at!=''){
-        $.ajax({
-          headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          url: "../admin/subject/insert",
-          method: "POST",
-          data:{name:name, created_at:created_at, updated_at},
-          success:function(data){
-            $('#subject_table').DataTable().ajax.reload();
-          }
-        });
+      var time = $('#data3').text();
+      var time1= parseInt(time);
+      if (name!=''&&time!=''){
+        if (time>0){
+
+          $.ajax({
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "../admin/subject/insert",
+            method: "POST",
+            data:{name:name,time:time},
+            success:function(data){
+              $('#subject_table').DataTable().ajax.reload();
+            }
+          });
+        }
+        else alert('Thời gian không hợp lệ');
       }
-      else alert('Both feild is required');
+      else alert('Nhập đầy đủ thông tin');
+
     });
 
     $(document).on('click', '.delete', function(){
@@ -87,7 +97,8 @@ $(document).ready(function(){
         $('#'+sub_id).attr('class','update btn btn-success btn-sm');
         $('#'+sub_id).text('Update');
         $('#'+sub_id+'.update').parent().parent().children('td:eq("1")').attr('contenteditable','true');
-        // $('#'+sub_id+'.update').parent().parent().children('td:eq("3")').attr('contenteditable','true');
+        $('#'+sub_id+'.update').parent().parent().children('td:eq("2")').attr('contenteditable','true');
+        
       }
       else alert('Vui lòng update từng dòng');
     });
@@ -95,19 +106,23 @@ $(document).ready(function(){
     $(document).on('click', '.update', function(){
       var name = $('#'+sub_id+'.update').parent().parent().children('td:eq("1")').text();
       var id = $('#'+sub_id+'.update').parent().parent().children('td:eq("0")').text();
-      var today = new Date();
-      var updated_at = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-      $.ajax({
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        url: "../admin/subject/update",
-        method: "POST",
-        data:{name:name, id:id, updated_at:updated_at},
-        success:function(data){
-          console.log(data);
-          $('#subject_table').DataTable().ajax.reload();
+      var time = $('#'+sub_id+'.update').parent().parent().children('td:eq("2")').text();
+      if (name!=''&&time!=''){
+        if (time>0){
+          $.ajax({
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "../admin/subject/update",
+            method: "POST",
+            data:{name:name,time:time, id:id},
+            success:function(data){
+              console.log(data);
+              $('#subject_table').DataTable().ajax.reload();
+            }
+          });
         }
-      });
+      }
+      else alert('Time gian không đúng định dạng');
     });
   });

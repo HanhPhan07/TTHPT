@@ -170,9 +170,9 @@
                 <input class="form-control" placeholder="Mật khẩu" name="password" id="password" type="password" value="">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
-            <div>
+            {{-- <div>
                 <a href="../admin/forgotpassword" class="btn btn-default btn-flat">ForgotPassword</a>
-            <div>
+            <div> --}}
             <button class="btn btn-lg btn-primary btn-block" id="btn_login" >Đăng nhập</button>
             {!! csrf_field() !!}
         </form>

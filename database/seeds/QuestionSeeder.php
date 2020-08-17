@@ -17,8 +17,6 @@ class QuestionSeeder extends Seeder
         $ans = ['Đáp án đúng','Đáp án sai', 'Đáp án sai', 'Đáp án sai'];
         $correct = ['A', 'B', 'C', 'D'];
 
-
-
         for ($que = 1; $que < $so_que+1; $que++) {
             $shuffle = Arr::shuffle($ans);
             $tam=-1;

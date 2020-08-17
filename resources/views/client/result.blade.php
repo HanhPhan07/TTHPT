@@ -21,19 +21,19 @@
                     <div class="box-body">
                         <dl class="dl-horizontal" id=" {{ $item->id }} ">
                             <dt>
-                                <input type="radio" name="{{ $item->id }}" class="minimal" <?php if ($item->answer_selected==="A") echo "checked"; ?> onclick="change_css(0)">A.
+                                <input type="radio" name="{{ $item->id }}" class="minimal" <?php if ($item->answer_selected==="A") echo "checked"; ?> disabled>A.
                             </dt>
                             <dd>{{ $item->question->ans_1 }}</dd>
                             <dt>
-                                <input type="radio" name="{{ $item->id }}" class="minimal" <?php if ($item->answer_selected==="B") echo "checked"; ?> onclick="change_css(0)">B.
+                                <input type="radio" name="{{ $item->id }}" class="minimal" <?php if ($item->answer_selected==="B") echo "checked"; ?> disabled>B.
                             </dt>
                             <dd>{{ $item->question->ans_2 }}</dd>
                             <dt>
-                                <input type="radio" name="{{ $item->id }}" class="minimal" <?php if ($item->answer_selected==="C") echo "checked"; ?> onclick="change_css(0)">C.
+                                <input type="radio" name="{{ $item->id }}" class="minimal" <?php if ($item->answer_selected==="C") echo "checked"; ?> disabled>C.
                             </dt>
                             <dd>{{ $item->question->ans_3 }}</dd>
                             <dt>
-                                <input type="radio" name="{{ $item->id }}" class="minimal" <?php if ($item->answer_selected==="D") echo "checked"; ?> onclick="change_css(0)">D.
+                                <input type="radio" name="{{ $item->id }}" class="minimal" <?php if ($item->answer_selected==="D") echo "checked"; ?> disabled>D.
                             </dt>
                             <dd>{{ $item->question->ans_4 }}</dd>
                         </dl>
@@ -45,37 +45,31 @@
         </div>
         <div class="col-xs-4 col-md-4">
             <div class="box box-default color-palette-box">
-                <div class="box-header with-border">
+                {{-- <div class="box-header with-border">
                     <h3 class="box-title">
                         <i class="fa fa-clock-o"></i> THỜI GIAN HOÀN THÀNH
                     </h3>
                     <p class="text-red" id="time">01:52:12</p>
-                </div>
+                </div> --}}
                 <div class="box-body">
                     <div class="box box-solid">
                         <div class="box-body no-padding">
                             <table class="table table-striped">
-                              <tbody><tr>
-                                <th>Tên: </th>
-                                <th>Huy Trần</th>
-                              </tr>
-                              <tr>
-                                <td>SBD: </td>
-                                <td>3951050015</td>
-                              </tr>
-                              <tr>
-                                <td>CMND: </td>
-                                <td>231164100</td>
-                              </tr>
-                              {{-- <tr>
-                                <td>Số câu đúng: </td>
-                                <td>5/10</td>
-                              </tr>
-                              <tr>
-                                <td>Điểm: </td>
-                                <td>6.75</td>
-                              </tr> --}}
-                            </tbody></table>
+                                {{-- @foreach ($student as $students) --}}
+                                <tbody><tr>
+                                    <th>Tên: </th>
+                                    <th>{{ $student->fullname }}</th>
+                                </tr>
+                                <tr>
+                                    <td>SBD: </td>
+                                    <td>{{$student->username}}</td>
+                                </tr>
+                                <tr>
+                                    <td>CMND: </td>
+                                    <td>{{$student->cmnd}}</td>
+                                </tr>
+                                </tbody></table>
+                                {{-- @endforeach --}}
                           </div>
                         </div>
 

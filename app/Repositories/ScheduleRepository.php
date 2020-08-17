@@ -18,11 +18,15 @@ class ScheduleRepository  extends EloquentRepository
     public function getIdSubject()
     {
         $time=\Carbon\Carbon::parse(now());
+
+        //dd($time);
         $schedule = Schedule::whereDate('test_date',now());
+        //dd($schedule);
         $dt = Carbon::now();
         $dt->setTime(12, 00, 00)->toDateTimeString();
         if($time > $dt) $sign='>';
         else $sign='<';
+        //dd($schedule->where('test_date',$sign,$dt)->value('id_subject'));
         return $schedule->where('test_date',$sign,$dt)->value('id_subject');
 
     }

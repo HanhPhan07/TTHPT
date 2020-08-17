@@ -36,18 +36,18 @@ class TaskRepository  extends EloquentRepository
 
     public function calculate(){
 
-        $array= Task::groupBy('id_exam','id_user')
-                    ->get(array('id_user','id_exam'));
+        $array= Task::groupBy('id_exam','id_student')
+                    ->get(array('id_student','id_exam'));
 
         foreach ($array as $item){
             $task= Task::where('id_exam',$item['id_exam'])
-                        ->where('id_user',$item['id_user'])
+                        ->where('id_student',$item['id_student'])
                         ->with('question')
                         ->get();
 
 
             $numques= Task::where('id_exam',$item['id_exam'])
-                        ->where('id_user',$item['id_user'])->count();
+                        ->where('id_student',$item['id_student'])->count();
             $count=0;
             foreach ($task as $compare){
 
@@ -55,8 +55,8 @@ class TaskRepository  extends EloquentRepository
 
 
             }
-            $mark =10/$numques*$count;
-            $attibutes=['answer_correct'=>$count, 'id_exam'=>$item['id_exam'], 'id_user'=>$item['id_user'], 'mark'=>$mark];
+            $mark =round(10/$numques*$count, 2, PHP_ROUND_HALF_UP);
+            $attibutes=['answer_correct'=>$count, 'id_exam'=>$item['id_exam'], 'id_student'=>$item['id_student'], 'mark'=>$mark];
             $this->resultService->storageResult($attibutes);
         }
 
@@ -66,7 +66,7 @@ class TaskRepository  extends EloquentRepository
 
 
     public function review($id_user,$id_exam){
-        $data= Task::where('id_user',$id_user)->where('id_exam',$id_exam)->with('question')->get();
+        $data= Task::where('id_student',$id_user)->where('id_exam',$id_exam)->with('question')->get();
         return $data;
     }
 
@@ -74,13 +74,13 @@ class TaskRepository  extends EloquentRepository
         $task = new Task;
         $task->id_question= $attibutes['id_question'];
         $task->id_exam= $attibutes['id_exam'];
-        $task->id_user= $attibutes['id_user'];
+        $task->id_student= $attibutes['id_student'];
         $task->save();
     }
 
 
     public function doneExam(){
-        $array= Task::groupBy('id_exam','id_user')->with('student')
+        $array= Task::groupBy('id_exam','id_student')->with('student')
                     ->get();
         return $array;
     }

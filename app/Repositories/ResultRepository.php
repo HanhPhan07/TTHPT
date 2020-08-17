@@ -20,6 +20,12 @@ class ResultRepository  extends EloquentRepository
     public function resultExam(){
         return Question::where('id',1)->get();
     }
+
+    public function resultCalculate(){
+        //print_r(Result::with('student')->get());
+        $array = Result::with('student')->get();
+        return $array;
+    }
     
 
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     protected $fillable = [
-        'id', 'answer_selected', 'id_question', 'id_exam', 'id_user',
+        'id', 'answer_selected', 'id_question', 'id_exam', 'id_student',
     ];
 
     public function question(){
@@ -15,6 +15,6 @@ class Task extends Model
     }
 
     public function student(){
-        return $this->belongsTo('App\Models\Student', 'id_user');
+        return $this->belongsTo('App\Models\Student', 'id_student');
     }
 }

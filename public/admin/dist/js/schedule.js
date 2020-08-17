@@ -6,7 +6,8 @@ $(document).ready(function(){
         var subject_id = $('#subject').val();
         var time = moment(
             $("#datepicker").datepicker("getDate")
-        ).format("Y-M-D");;
+        ).format("Y-M-D h:I:s");;
+        console.log(time);
         if(subject_id == ''|| time == ''){
             $('#error_message').html('<div class="callout callout-danger">' +
             '<h4>Lỗi!</h4>' +

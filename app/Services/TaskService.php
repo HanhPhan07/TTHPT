@@ -60,9 +60,9 @@ class TaskService
         return $this->questionListRepository->getCountListQuestion($id_exam);
     }
 
-    public function getTimeSubject($id_subject){
-        return $this->examRepository->getTimeSubject($id_subject);
-    }
+    // public function getTimeSubject($id_subject){
+    //     return $this->examRepository->getTimeSubject($id_subject);
+    // }
 
 
     public function findStudent($id){
@@ -83,8 +83,8 @@ class TaskService
         return $this->taskRepository->updatebyidques($id,$selected);
     }
 
-    public function calculate(){
-        return $this->taskRepository->calculate();
+    public function calculate($id_student, $id_exam){
+        return $this->taskRepository->calculate($id_student, $id_exam);
     }
 
     public function review($id_user,$id_exam){

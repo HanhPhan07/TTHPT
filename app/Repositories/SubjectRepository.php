@@ -28,6 +28,6 @@ class SubjectRepository  extends EloquentRepository
     }
     public function getSubjectTime($id){
         return Subject::whereId($id)
-                        ->get("time");
+                        ->get(["time"]);
     }
 }

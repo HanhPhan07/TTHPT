@@ -37,7 +37,7 @@ Route::group(['prefix' => '/admin'], function () {
         Route::get('/schedule/delete/{id}', 'ScheduleController@delete');
 
         Route::get('/examlist', 'ExamlistController@index');
-        Route::get('/examlist/createexamlist', 'ExamListController@store');
+        Route::post('/examlist/createexamlist', 'ExamListController@store');
 
         Route::get('/student', 'StudentController@index');
         Route::post('/student/import', 'StudentController@import');

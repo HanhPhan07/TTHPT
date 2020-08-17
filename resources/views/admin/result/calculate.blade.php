@@ -39,19 +39,19 @@
                                 @foreach ($mark as $item )
                                 <tr>
                                     <td>{{ $item->id}}</td>
-                                    <td>{{ $item->id_user}}</td>
+                                    <td>{{ $item->student->username}}</td>
                                     <td>{{ $item->student->fullname}}</td>
                                     <td>{{ $item->id_exam}}</td>
                                     <td>{{ $item->answer_correct}}</td>
                                     <td>{{ $item->mark}}</td>
-                                    
+
                                 </tr>
-                            
+
                                 @endforeach
                             </tbody>
                         </table>
 
-                        
+
 
 
                     </div>

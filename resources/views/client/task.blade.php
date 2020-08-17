@@ -82,7 +82,7 @@
                                         <span data-seconds="" class="text-red">00</span>
                                     </div>
                                 </div>
-                                <a href="/resetcd"><button id= "clear">Xóa session</button></a>
+                                {{-- <a href="/resetcd"><button id= "clear">Xóa session</button></a> --}}
                             </div>
                             <div id="student">
 
